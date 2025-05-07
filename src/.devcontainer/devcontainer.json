@@ -1,0 +1,64 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "Python Development",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/powershell:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-python.black-formatter",
+        "ms-python.flake8",
+        "ms-python.isort",
+        "ms-azuretools.vscode-docker",
+        "njpwerner.autodocstring",
+        "streetsidesoftware.code-spell-checker",
+        "eamodio.gitlens",
+        "ms-vscode.powershell",
+        "gruntfuggly.todo-tree",
+        "visualstudioexptteam.vscodeintellicode",
+        "github.copilot",
+        "ryanluker.vscode-coverage-gutters",
+        "mhutchie.git-graph"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.flake8Enabled": true,
+        "python.formatting.provider": "black",
+        "python.formatting.blackPath": "/usr/local/bin/black",
+        "editor.formatOnSave": true,
+        "editor.rulers": [
+          88
+        ],
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "always"
+        },
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+          "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+          },
+          "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+          }
+        },
+        "python.terminal.activateEnvironment": true,
+        "terminal.integrated.env.linux": {
+          "PYTHONIOENCODING": "utf-8"
+        }
+      }
+    }
+  },
+  "forwardPorts": [],
+  "remoteUser": "vscode"
+}
