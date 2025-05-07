@@ -37,8 +37,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
   && rm -rf /var/lib/apt/lists/*
 
 # Set up Python development tools
-RUN pip install --no-cache-dir --upgrade pip \
-  && pip install --no-cache-dir black flake8 isort pytest pytest-cov mypy
+RUN pip install --no-cache-dir --upgrade pip
 
 # Set the working directory
 WORKDIR /workspace
