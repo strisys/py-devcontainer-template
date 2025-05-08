@@ -6,7 +6,10 @@
     "context": ".."
   },
   "features": {
-    "ghcr.io/devcontainers/features/powershell:1": {}
+    "ghcr.io/devcontainers/features/powershell:1": {},
+    // "ghcr.io/devcontainers/features/azure-cli:1": {},
+    // "ghcr.io/devcontainers/features/aws-cli:1": {},
+    // "ghcr.io/devcontainers/features/gcloud:1": {}
   },
   "customizations": {
     "vscode": {
@@ -15,7 +18,7 @@
         "ms-python.vscode-pylance",
         "ms-toolsai.jupyter",
         "ms-python.black-formatter",
-        "ms-python.flake8",
+        // "ms-python.flake8",
         "ms-python.isort",
         "ms-azuretools.vscode-docker",
         "njpwerner.autodocstring",
@@ -30,17 +33,38 @@
       ],
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",
-        "python.linting.enabled": true,
-        "python.linting.flake8Enabled": true,
+        "python.linting.enabled": false,
+        "python.linting.flake8Enabled": false,
+        "python.linting.flake8Args": [
+          "--ignore=E128,E123,E125,E126,E501",
+          "--max-line-length=150"
+        ],
         "python.formatting.provider": "black",
         "python.formatting.blackPath": "/usr/local/bin/black",
-        "editor.formatOnSave": true,
+        "editor.formatOnSave": false,
+        "editor.formatOnPaste": false,
+        "editor.formatOnType": false,
+        "python.formatting.blackArgs": [
+          "--line-length=150"
+        ],
         "editor.rulers": [
-          88
+          150
         ],
         "editor.codeActionsOnSave": {
-          "source.organizeImports": "always"
+          "source.organizeImports": "never"
         },
+        "[python]": {
+          "editor.defaultFormatter": "ms-python.black-formatter",
+          "editor.formatOnSave": false,
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          }
+        },
+        "isort.args": [
+          "--profile",
+          "black",
+          "--line-length=150"
+        ],
         "terminal.integrated.defaultProfile.linux": "bash",
         "terminal.integrated.profiles.linux": {
           "pwsh": {

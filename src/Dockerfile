@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
   PYTHONUNBUFFERED=1 \
@@ -36,13 +36,10 @@ RUN groupadd --gid $USER_GID $USERNAME \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-# Set up Python development tools
 RUN pip install --no-cache-dir --upgrade pip
 
-# Set the working directory
 WORKDIR /workspace
 
-# Install Python packages from requirements.txt when present
 COPY requirements.txt* ./
 RUN if [ -f "requirements.txt" ]; then pip install --no-cache-dir -r requirements.txt; fi
 
